@@ -9,7 +9,11 @@
 body{
   font-family:"Montserrat",sans-serif!important;
 }
-
+h1,h2,h3{
+  font-family:"Lavishly Yours", cursive!important;
+  font-weight: 400!important;
+  font-style: normal!important;
+}
 /* Custom CSS Variables for Maroon and Milky Colors */
 :root {
   --maroon-50: #fdf2f2;
