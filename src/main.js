@@ -16,17 +16,26 @@ class MobileNavigation {
   setupEventListeners() {
     if (!this.mobileMenuBtn || !this.mobileMenu) return;
     
-    this.mobileMenuBtn.addEventListener('click', () => this.toggleMenu());
+    this.mobileMenuBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      this.toggleMenu();
+    });
     
     // Close menu when clicking on overlay
     if (this.mobileOverlay) {
-      this.mobileOverlay.addEventListener('click', () => this.closeMenu());
+      this.mobileOverlay.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.closeMenu();
+      });
     }
     
     // Close menu when clicking on links
     const mobileLinks = this.mobileMenu.querySelectorAll('a');
     mobileLinks.forEach(link => {
-      link.addEventListener('click', () => this.closeMenu());
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.closeMenu();
+      });
     });
 
     // Close menu on window resize if screen becomes large
@@ -105,8 +114,8 @@ class HeroCarousel {
 
   init() {
     this.setupEventListeners();
-    this.startAutoPlay();
     this.updateSlide();
+    this.startAutoPlay();
   }
 
   setupEventListeners() {
@@ -114,18 +123,37 @@ class HeroCarousel {
     const prevBtn = document.querySelector('.nav-prev');
     const nextBtn = document.querySelector('.nav-next');
     
-    if (prevBtn) prevBtn.addEventListener('click', () => this.changeSlide(-1));
-    if (nextBtn) nextBtn.addEventListener('click', () => this.changeSlide(1));
+    if (prevBtn) {
+      prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.changeSlide(-1);
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.changeSlide(1);
+      });
+    }
 
     // Indicator buttons
     this.indicators.forEach((indicator, index) => {
-      indicator.addEventListener('click', () => this.goToSlide(index));
+      indicator.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.goToSlide(index);
+      });
     });
 
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') this.changeSlide(-1);
-      if (e.key === 'ArrowRight') this.changeSlide(1);
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        this.changeSlide(-1);
+      }
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        this.changeSlide(1);
+      }
     });
 
     // Touch/swipe support
@@ -139,25 +167,29 @@ class HeroCarousel {
     let startX = 0;
     let startY = 0;
 
-    document.addEventListener('touchstart', (e) => {
+    const carousel = document.querySelector('.parallax-carousel');
+    if (!carousel) return;
+
+    carousel.addEventListener('touchstart', (e) => {
       startX = e.touches[0].clientX;
       startY = e.touches[0].clientY;
-    });
+    }, { passive: true });
 
-    document.addEventListener('touchend', (e) => {
+    carousel.addEventListener('touchend', (e) => {
       const endX = e.changedTouches[0].clientX;
       const endY = e.changedTouches[0].clientY;
       const diffX = startX - endX;
       const diffY = startY - endY;
 
       if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+        e.preventDefault();
         if (diffX > 0) {
           this.changeSlide(1);
         } else {
           this.changeSlide(-1);
         }
       }
-    });
+    }, { passive: false });
   }
 
   setupParallaxEffect() {
@@ -175,14 +207,24 @@ class HeroCarousel {
   }
 
   updateSlide() {
-    this.slides.forEach(slide => slide.classList.remove('active'));
-    this.indicators.forEach(indicator => indicator.classList.remove('active'));
+    // Remove active class from all slides and indicators
+    this.slides.forEach((slide) => {
+      slide.classList.remove('active');
+    });
     
+    this.indicators.forEach((indicator) => {
+      indicator.classList.remove('active');
+      indicator.setAttribute('aria-selected', 'false');
+    });
+    
+    // Add active class to current slide and indicator
     if (this.slides[this.currentSlide]) {
       this.slides[this.currentSlide].classList.add('active');
     }
+    
     if (this.indicators[this.currentSlide]) {
       this.indicators[this.currentSlide].classList.add('active');
+      this.indicators[this.currentSlide].setAttribute('aria-selected', 'true');
     }
   }
 
@@ -199,11 +241,14 @@ class HeroCarousel {
   }
 
   goToSlide(slideIndex) {
-    this.currentSlide = slideIndex;
-    this.updateSlide();
+    if (slideIndex >= 0 && slideIndex < this.totalSlides) {
+      this.currentSlide = slideIndex;
+      this.updateSlide();
+    }
   }
 
   startAutoPlay() {
+    this.stopAutoPlay(); // Clear any existing interval
     this.autoPlayInterval = setInterval(() => {
       this.changeSlide(1);
     }, 6000);
@@ -212,6 +257,7 @@ class HeroCarousel {
   stopAutoPlay() {
     if (this.autoPlayInterval) {
       clearInterval(this.autoPlayInterval);
+      this.autoPlayInterval = null;
     }
   }
 }

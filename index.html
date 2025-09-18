@@ -370,5 +370,41 @@
 
   <script src="./src/main.js"></script>
   
+  <!-- Fallback script for Vercel deployment -->
+  <script>
+    // Ensure carousel initialization on Vercel
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        if (!window.heroCarousel) {
+          const slides = document.querySelectorAll('.slide');
+          if (slides.length > 0) {
+            // Force carousel initialization
+            try {
+              window.heroCarousel = new HeroCarousel();
+            } catch (e) {
+              console.error('Carousel initialization failed:', e);
+            }
+          }
+        }
+      }, 200);
+    });
+
+    // Additional fallback on window load
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        if (!window.heroCarousel) {
+          const slides = document.querySelectorAll('.slide');
+          if (slides.length > 0) {
+            try {
+              window.heroCarousel = new HeroCarousel();
+            } catch (e) {
+              console.error('Carousel fallback initialization failed:', e);
+            }
+          }
+        }
+      }, 300);
+    });
+  </script>
+  
 </body>
 </html>
