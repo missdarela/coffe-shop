@@ -1,3 +1,5 @@
+import "./style.css"
+
 // Mobile Navigation Class
 class MobileNavigation {
   constructor() {
