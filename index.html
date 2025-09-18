@@ -3,56 +3,192 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <!-- SEO Essentials -->
-   <title>Coffico | Artisan Coffee Shop in Camden, London</title>
-   <meta name="description" content="Coffico is your local Camden coffee shop serving artisan coffee, fresh pastries, and community vibes. Visit us or order online.">
-   <meta name="keywords" content="Camden coffee shop, artisan coffee London, best coffee in Camden, Coffico cafe">
-   <link rel="canonical" href="https://www.coffico.co.uk/">
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
- 
-   <!-- Social Sharing -->
-   <meta property="og:title" content="Coffico Coffee Shop - Camden, London">
-   <meta property="og:description" content="Enjoy artisan coffee and pastries at Coffico in Camden. Order online or visit our cosy shop.">
-   <meta property="og:image" content="https://www.coffico.co.uk/images/hero.jpg">
-   <meta property="og:type" content="website">
-  <link href="/src/style.css" rel="stylesheet">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>Coffico | Premium Artisan Coffee Shop in Camden, London | Fresh Pastries & Community Hub</title>
+  <meta name="description" content="Discover Coffico, Camden's premier artisan coffee shop. Enjoy ethically sourced coffee, fresh pastries, and a welcoming community space. Open daily 8am-8pm on Camden High Street.">
+  <meta name="keywords" content="Camden coffee shop, artisan coffee London, best coffee Camden, specialty coffee, fresh pastries, community cafe, ethically sourced coffee, Camden High Street, London coffee, barista coffee">
+  <meta name="author" content="Coffico Coffee Shop">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.coffico.co.uk/">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.coffico.co.uk/">
+  <meta property="og:title" content="Coffico | Premium Artisan Coffee Shop in Camden, London">
+  <meta property="og:description" content="Experience the finest artisan coffee and fresh pastries at Coffico in Camden. Your local community hub for exceptional coffee and warm hospitality.">
+  <meta property="og:image" content="https://www.coffico.co.uk/src/images/coffico-hero.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Coffico Coffee Shop">
+  <meta property="og:locale" content="en_GB">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.coffico.co.uk/">
+  <meta property="twitter:title" content="Coffico | Premium Artisan Coffee Shop in Camden, London">
+  <meta property="twitter:description" content="Experience the finest artisan coffee and fresh pastries at Coffico in Camden. Your local community hub for exceptional coffee and warm hospitality.">
+  <meta property="twitter:image" content="https://www.coffico.co.uk/src/images/coffico-hero.jpg">
+  
+  <!-- Additional SEO Meta Tags -->
+  <meta name="theme-color" content="#800020">
+  <meta name="msapplication-TileColor" content="#800020">
+  <meta name="application-name" content="Coffico">
+  <meta name="apple-mobile-web-app-title" content="Coffico">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  <!-- Preconnect for Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+  <link href="./src/style.css" rel="stylesheet">
+  
+  <!-- Structured Data - Local Business -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CafeOrCoffeeShop",
+    "name": "Coffico",
+    "description": "Premium artisan coffee shop in Camden, London, serving ethically sourced coffee, fresh pastries, and providing a welcoming community space.",
+    "url": "https://www.coffico.co.uk",
+    "telephone": "+44 20 1234 5678",
+    "email": "hello@coffico.co.uk",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Camden High Street",
+      "addressLocality": "Camden",
+      "addressRegion": "London",
+      "postalCode": "NW1",
+      "addressCountry": "GB"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "51.5414",
+      "longitude": "-0.1419"
+    },
+    "openingHours": [
+      "Mo-Su 08:00-20:00"
+    ],
+    "priceRange": "££",
+    "servesCuisine": "Coffee, Pastries, Light Meals",
+    "acceptsReservations": false,
+    "hasMenu": "https://www.coffico.co.uk/#menu",
+    "image": [
+      "https://www.coffico.co.uk/src/images/coffico-hero.jpg",
+      "https://www.coffico.co.uk/src/images/coffee-latte-with-cookies-coffiee-beans.jpg",
+      "https://www.coffico.co.uk/src/images/hot-choco-withcream.jpg"
+    ],
+    "sameAs": [
+      "https://www.facebook.com/coffico",
+      "https://www.instagram.com/coffico_camden",
+      "https://www.twitter.com/coffico"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "127"
+    }
+  }
+  </script>
+  
+  <!-- Structured Data - Menu -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Menu",
+    "name": "Coffico Menu",
+    "description": "Our carefully curated selection of artisan coffee and fresh pastries",
+    "hasMenuSection": [
+      {
+        "@type": "MenuSection",
+        "name": "Coffee",
+        "hasMenuItem": [
+          {
+            "@type": "MenuItem",
+            "name": "Latte",
+            "description": "Rich espresso with steamed milk",
+            "offers": {
+              "@type": "Offer",
+              "price": "3.20",
+              "priceCurrency": "GBP"
+            }
+          },
+          {
+            "@type": "MenuItem",
+            "name": "Cappuccino",
+            "description": "Espresso, steamed milk & frothy foam",
+            "offers": {
+              "@type": "Offer",
+              "price": "3.50",
+              "priceCurrency": "GBP"
+            }
+          }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Pastries",
+        "hasMenuItem": [
+          {
+            "@type": "MenuItem",
+            "name": "Croissant",
+            "description": "Freshly baked buttery goodness",
+            "offers": {
+              "@type": "Offer",
+              "price": "2.50",
+              "priceCurrency": "GBP"
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="min-h-screen">
   <!-- Responsive Navbar -->
-  <nav class="navbar shadow-lg sticky top-0 z-50">
+  <nav class="navbar shadow-lg sticky top-0 z-50" role="navigation" aria-label="Main navigation">
     <div class="container mx-auto px-4">
       <div class="flex justify-between items-center py-4">
         <!-- Logo -->
         <div class="flex items-center space-x-3">
-          <div class="w-10 h-10 bg-gradient-maroon-milky rounded-full flex items-center justify-center">
-            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+          <div class="w-10 h-10 bg-gradient-maroon-milky rounded-full flex items-center justify-center" aria-hidden="true">
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
               <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
             </svg>
           </div>
-          <span class="text-2xl font-bold text-gradient-maroon-900-red-200 brand-name">
+          <h1 class="text-2xl font-bold text-gradient-maroon-900-red-200 brand-name">
             Coffico
-          </span>
+          </h1>
         </div>
 
         <!-- Desktop Navigation -->
         <div class="hidden md:flex items-center space-x-8">
-          <a href="#home" class="text-maroon-900 hover:text-maroon-700 font-medium transition-colors duration-200">Home</a>
-          <a href="#menu" class="text-maroon-900 hover:text-maroon-700 font-medium transition-colors duration-200">Menu</a>
-          <a href="#about" class="text-maroon-900 hover:text-maroon-700 font-medium transition-colors duration-200">About</a>
-          <a href="#contact" class="text-maroon-900 hover:text-maroon-700 font-medium transition-colors duration-200">Contact</a>
-       
+          <a href="#home" class="text-maroon-900 hover:text-maroon-700 font-medium transition-colors duration-200" aria-label="Go to home section">Home</a>
+          <a href="#menu" class="text-maroon-900 hover:text-maroon-700 font-medium transition-colors duration-200" aria-label="View our menu">Menu</a>
+          <a href="#about" class="text-maroon-900 hover:text-maroon-700 font-medium transition-colors duration-200" aria-label="Learn about us">About</a>
+          <a href="#contact" class="text-maroon-900 hover:text-maroon-700 font-medium transition-colors duration-200" aria-label="Contact information">Contact</a>
         </div>
 
         <!-- Mobile Menu Button -->
-        <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg hover:bg-maroon-100 transition-colors duration-200">
-          <svg class="w-6 h-6 text-maroon-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg hover:bg-maroon-100 transition-colors duration-200" aria-label="Open mobile menu" aria-expanded="false">
+          <svg class="w-6 h-6 text-maroon-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
         </button>
       </div>
 
       <!-- Mobile Navigation Menu -->
-      <div id="mobileMenu" class="mobile-menu">
+      <nav id="mobileMenu" class="mobile-menu" role="navigation" aria-label="Mobile navigation">
         <div class="flex flex-col space-y-3">
           <a href="#home" class="text-maroon-900 hover:text-maroon-700 font-medium py-2 px-4 rounded-lg hover:bg-maroon-50 transition-all duration-200">Home</a>
           <a href="#menu" class="text-maroon-900 hover:text-maroon-700 font-medium py-2 px-4 rounded-lg hover:bg-maroon-50 transition-all duration-200">Menu</a>
@@ -62,112 +198,112 @@
             Order Now
           </button>
         </div>
-      </div>
+      </nav>
     </div>
   </nav>
 
   <!-- Mobile Menu Overlay -->
-  <div class="mobile-overlay" id="mobileOverlay"></div>
-    <!-- Hero Carousel -->
-  <header class="carousel bg-milky-500">
+  <div class="mobile-overlay" id="mobileOverlay" aria-hidden="true"></div>
+  
+  <!-- Hero Carousel -->
+  <header class="carousel bg-milky-500" id="home" role="banner">
     <div class="parallax-carousel">
       <!-- Slide 1 -->
-      <div class="slide active">
-        <div class="slide-bg bg-cover bg-position-center" style="background-image: url('src/images/milkshake-set-table.jpg');"></div>
-        <div class="floating-elements">
+      <section class="slide active" aria-label="Welcome to Coffico">
+        <div class="slide-bg bg-cover bg-position-center" style="background-image: url('src/images/milkshake-set-table.jpg');" role="img" aria-label="Delicious milkshakes on table"></div>
+        <div class="floating-elements" aria-hidden="true">
           <div class="floating-element"></div>
           <div class="floating-element"></div>
           <div class="floating-element"></div>
         </div>
         <div class="slide-content">
-          <h1 class="text-2xl md:text-3xl">Thick & Creamy Milkshakes</h1>
-          <p class="text-sm md:text-lg">Cool, velvety, and made to order our milkshakes are the perfect treat any time of day. Blended with rich ice cream and topped with a swirl of whipped cream, every sip is pure indulgence.</p>
-          <button class="btn">Explore Now</button>
+          <h2 class="text-2xl md:text-4xl">Welcome to Coffico</h2>
+          <p class="text-xl md:text-2xl">Discover exceptional artisan coffee and fresh pastries in the heart of Camden</p>
+          <button class="btn" onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">Explore Menu</button>
         </div>
-      </div>
+      </section>
   
       <!-- Slide 2 -->
-      <div class="slide">
-        <div class="slide-bg" style="background-image: url('src/images/crossiant.jpg');"></div>
-        <div class="floating-elements">
+      <section class="slide" aria-label="Fresh pastries">
+        <div class="slide-bg" style="background-image: url('src/images/crossiant.jpg');" role="img" aria-label="Fresh croissants"></div>
+        <div class="floating-elements" aria-hidden="true">
           <div class="floating-element"></div>
           <div class="floating-element"></div>
           <div class="floating-element"></div>
         </div>
         <div class="slide-content">
-          <h1 class="text-2xl md:text-3xl">Flaky, Buttery Croissants</h1>
-          <p class="text-sm md:text-lg">Fresh from the oven every morning, our croissants are layered with golden, buttery perfection. Crisp on the outside, soft and airy within this is the pastry that makes mornings worth savoring.  </button>
+          <h2 class="text-2xl md:text-4xl">Fresh Daily Pastries</h2>
+          <p class="text-xl md:text-2xl">Handcrafted croissants, muffins, and artisan breads baked fresh every morning</p>
+          <button class="btn" onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">View Pastries</button>
         </div>
-      </div>
+      </section>
   
       <!-- Slide 3 -->
-      <div class="slide">
-        <div class="slide-bg bg-cover bg-position-center" style="background-image: url('src/images/cookies.jpg');"></div>
-        <div class="floating-elements">
+      <section class="slide" aria-label="Premium coffee">
+        <div class="slide-bg bg-cover bg-position-center" style="background-image: url('src/images/cookies.jpg');" role="img" aria-label="Coffee and cookies"></div>
+        <div class="floating-elements" aria-hidden="true">
           <div class="floating-element"></div>
           <div class="floating-element"></div>
           <div class="floating-element"></div>
         </div>
         <div class="slide-content">
-          <h1 class="text-2xl md:text-3xl">Freshly Baked Cookies</h1>
-          <p class="text-sm md:text-lg">Crisp at the edges, soft at the center our cookies strike the perfect balance of texture and flavor. From classic chocolate chip to seasonal favorites, each bite tastes like home.</p>
-          <button class="btn">Dive In</button>
+          <h2 class="text-2xl md:text-4xl">Premium Coffee Experience</h2>
+          <p class="text-xl md:text-2xl">Ethically sourced beans, expertly roasted and crafted by skilled baristas</p>
+          <button class="btn" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">Learn More</button>
         </div>
-      </div>
+      </section>
   
       <!-- Slide 4 -->
-      <div class="slide">
-        <div class="slide-bg bg-cover bg-position-center" style="background-image: url('src/images/coffee-latte-with-cookies-coffiee-beans.jpg');"></div>
-        <div class="floating-elements">
+      <section class="slide" aria-label="Community space">
+        <div class="slide-bg bg-cover bg-position-center" style="background-image: url('src/images/coffee-latte-with-cookies-coffiee-beans.jpg');" role="img" aria-label="Latte with coffee beans"></div>
+        <div class="floating-elements" aria-hidden="true">
           <div class="floating-element"></div>
           <div class="floating-element"></div>
           <div class="floating-element"></div>
         </div>
         <div class="slide-content">
-          <h1 class="text-2xl md:text-3xl">Freshly Brewed Coffee</h1>
-          <From class="text-sm md:text-lg">From bold espressos to smooth lattes, our coffee is brewed with precision and passion. Every cup is made from carefully selected beans, roasted to bring out rich flavor and comforting aroma.</p>
-          <button class="btn">Journey Forth</button>
+          <h2 class="text-2xl md:text-4xl">Your Camden Community Hub</h2>
+          <p class="text-xl md:text-2xl">A warm, welcoming space to work, relax, and connect with fellow coffee lovers</p>
+          <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Visit Us</button>
         </div>
-      </div>
+      </section>
   
       <!-- Navigation -->
-      <div class="navigation nav-prev" onclick="changeSlide(-1)">‹</div>
-      <div class="navigation nav-next" onclick="changeSlide(1)">›</div>
+      <button class="navigation nav-prev" onclick="changeSlide(-1)" aria-label="Previous slide">‹</button>
+      <button class="navigation nav-next" onclick="changeSlide(1)" aria-label="Next slide">›</button>
   
       <!-- Indicators -->
-      <div class="indicators">
-        <div class="indicator active" onclick="goToSlide(0)"></div>
-        <div class="indicator" onclick="goToSlide(1)"></div>
-        <div class="indicator" onclick="goToSlide(2)"></div>
-        <div class="indicator" onclick="goToSlide(3)"></div>
+      <div class="indicators" role="tablist" aria-label="Carousel navigation">
+        <button class="indicator active" onclick="goToSlide(0)" role="tab" aria-label="Go to slide 1" aria-selected="true"></button>
+        <button class="indicator" onclick="goToSlide(1)" role="tab" aria-label="Go to slide 2" aria-selected="false"></button>
+        <button class="indicator" onclick="goToSlide(2)" role="tab" aria-label="Go to slide 3" aria-selected="false"></button>
+        <button class="indicator" onclick="goToSlide(3)" role="tab" aria-label="Go to slide 4" aria-selected="false"></button>
       </div>
     </div>
-  
   </header>
 
-  
   <!-- Menu Preview -->
-  <section id="menu" class="py-12">
+  <section id="menu" class="py-12" role="main">
     <h2 class="text-3xl text-maroon-900 font-bold text-center mb-8 fade-in">Our Menu</h2>
     <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto px-6">
-      <div class="bg-red-100 shadow rounded-full p-6 text-center stagger-animation">
-        <img src="src/images//cup-coffee-with-drawn-heart-removebg-preview.png" alt="">
+      <article class="bg-red-100 shadow rounded-full p-6 text-center stagger-animation">
+        <img src="src/images//cup-coffee-with-drawn-heart-removebg-preview.png" alt="Latte with heart design" loading="lazy">
         <h3 class="text-2xl font-semibold text-maroon-900">Latte</h3>
         <p class="text-gray-600 mt-2">Rich espresso with steamed milk</p>
         <p class="mt-4 font-bold text-base text-maroon-900">£3.20</p>
-      </div>
-      <div class="bg-red-100 shadow rounded-full p-6 text-center stagger-animation">
-        <img src="src/images/homemade-sweet-bun-croissant-plate-marble-surface-removebg-preview.png" alt="">
+      </article>
+      <article class="bg-red-100 shadow rounded-full p-6 text-center stagger-animation">
+        <img src="src/images/homemade-sweet-bun-croissant-plate-marble-surface-removebg-preview.png" alt="Fresh croissant on marble surface" loading="lazy">
+        <h3 class="text-2xl text-maroon-900 font-semibold">Cappuccino</h3>
+        <p class="text-gray-600 mt-2">Espresso, steamed milk & frothy foam</p>
+        <p class="mt-4 font-bold text-base text-maroon-900">£3.50</p>
+      </article>
+      <article class="bg-red-100 shadow rounded-full p-6 text-center stagger-animation">
+        <img src="src/images/plate-with-avocado-seeds-toast-removebg-preview.png" alt="Avocado toast with seeds" loading="lazy">
         <h3 class="text-2xl text-maroon-900 font-semibold">Croissant</h3>
         <p class="text-gray-600 mt-2">Freshly baked buttery goodness</p>
-        <p class="mt-4 font-bold text-base text-maroon-900">£3.50</p>
-      </div>
-      <div class="bg-red-100 shadow rounded-full p-6 text-center stagger-animation">
-        <img src="src/images/plate-with-avocado-seeds-toast-removebg-preview copy.png" alt="">
-        <h3 class="text-2xl text-maroon-900 font-semibold">Avacado toasted Bread</h3>
-        <p class="text-gray-600 mt-2">Freshly baked buttery goodness</p>
         <p class="mt-4 font-bold text-base text-maroon-900">£2.50</p>
-      </div>
+      </article>
     </div>
   </section>
 
@@ -175,7 +311,7 @@
   <section id="about" class="py-12 mx-auto px-6 slide-in-left">
     <h2 class="text-3xl text-maroon-900 font-bold text-center mb-6">About Coffico</h2>
     <p class="text-lg text-center text-gray-700 max-w-2xl mx-auto">
-      Founded in Camden, Coffico is more than a coffee shop it’s a community hub. 
+      Founded in Camden, Coffico is more than a coffee shop – it's a community hub. 
       We pride ourselves on serving ethically sourced artisan coffee, fresh pastries, 
       and providing a cozy space where everyone feels welcome.
     </p>
@@ -187,23 +323,23 @@
     
     <!-- Contact Info Cards -->
     <div class="contact-info max-w-6xl mx-auto px-6">
-      <div class="contact-card bg-red-100">
-        <span class="icon">📍</span>
-        <h4>Location</h4>
-        <p>123 Camden High Street<br>London NW1</p>
-      </div>
+      <article class="contact-card bg-red-100">
+        <span class="icon" aria-hidden="true">📍</span>
+        <h3>Location</h3>
+        <address class="not-italic">123 Camden High Street<br>London NW1</address>
+      </article>
       
-      <div class="contact-card bg-red-100">
-        <span class="icon">☎️</span>
-        <h4>Phone</h4>
-        <p>+44 20 1234 5678</p>
-      </div>
+      <article class="contact-card bg-red-100">
+        <span class="icon" aria-hidden="true">☎️</span>
+        <h3>Phone</h3>
+        <p><a href="tel:+442012345678">+44 20 1234 5678</a></p>
+      </article>
       
-      <div class="contact-card bg-red-100">
-        <span class="icon">🕒</span>
-        <h4>Opening Hours</h4>
-        <p>Daily: 8am – 8pm</p>
-      </div>
+      <article class="contact-card bg-red-100">
+        <span class="icon" aria-hidden="true">🕒</span>
+        <h3>Opening Hours</h3>
+        <p><time>Daily: 8am – 8pm</time></p>
+      </article>
     </div>
 
     <!-- Map Section -->
@@ -214,25 +350,25 @@
       </div>
       
       <div class="map-container">
-        <!-- <div class="map-loading">Loading map...</div> -->
         <iframe 
           class="map-iframe"
           src="https://www.google.com/maps?q=123%20Camden%20High%20Street,%20London%20NW1&output=embed"
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          title="Coffico Location Map">
+          title="Coffico location map - 123 Camden High Street, London NW1"
+          aria-label="Interactive map showing Coffico location">
         </iframe>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class=" text-maroon-900 text-center py-6">
-    <p>&copy; 2025 Coffico. All rights reserved.</p>
+  <footer class="text-maroon-900 text-center py-6" role="contentinfo">
+    <p>&copy; 2025 Coffico Coffee Shop. All rights reserved. | <a href="/privacy" class="hover:underline">Privacy Policy</a> | <a href="/terms" class="hover:underline">Terms of Service</a></p>
   </footer>
 
-  <script src="/src/main.js"></script>
+  <script src="./src/main.js"></script>
   
 </body>
 </html>

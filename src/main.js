@@ -89,6 +89,133 @@ class MobileNavigation {
   }
 }
 
+// Carousel Class
+class HeroCarousel {
+  constructor() {
+    this.currentSlide = 0;
+    this.slides = document.querySelectorAll('.slide');
+    this.indicators = document.querySelectorAll('.indicator');
+    this.totalSlides = this.slides.length;
+    this.autoPlayInterval = null;
+    
+    if (this.slides.length > 0) {
+      this.init();
+    }
+  }
+
+  init() {
+    this.setupEventListeners();
+    this.startAutoPlay();
+    this.updateSlide();
+  }
+
+  setupEventListeners() {
+    // Navigation buttons
+    const prevBtn = document.querySelector('.nav-prev');
+    const nextBtn = document.querySelector('.nav-next');
+    
+    if (prevBtn) prevBtn.addEventListener('click', () => this.changeSlide(-1));
+    if (nextBtn) nextBtn.addEventListener('click', () => this.changeSlide(1));
+
+    // Indicator buttons
+    this.indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => this.goToSlide(index));
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') this.changeSlide(-1);
+      if (e.key === 'ArrowRight') this.changeSlide(1);
+    });
+
+    // Touch/swipe support
+    this.setupTouchEvents();
+    
+    // Mouse parallax effect
+    this.setupParallaxEffect();
+  }
+
+  setupTouchEvents() {
+    let startX = 0;
+    let startY = 0;
+
+    document.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    });
+
+    document.addEventListener('touchend', (e) => {
+      const endX = e.changedTouches[0].clientX;
+      const endY = e.changedTouches[0].clientY;
+      const diffX = startX - endX;
+      const diffY = startY - endY;
+
+      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+        if (diffX > 0) {
+          this.changeSlide(1);
+        } else {
+          this.changeSlide(-1);
+        }
+      }
+    });
+  }
+
+  setupParallaxEffect() {
+    document.addEventListener('mousemove', (e) => {
+      const mouseX = e.clientX / window.innerWidth;
+      const mouseY = e.clientY / window.innerHeight;
+      
+      const activeSlide = document.querySelector('.slide.active .slide-bg');
+      if (activeSlide) {
+        const moveX = (mouseX - 0.5) * 20;
+        const moveY = (mouseY - 0.5) * 20;
+        activeSlide.style.transform = `scale(1.1) translate(${moveX}px, ${moveY}px)`;
+      }
+    });
+  }
+
+  updateSlide() {
+    this.slides.forEach(slide => slide.classList.remove('active'));
+    this.indicators.forEach(indicator => indicator.classList.remove('active'));
+    
+    if (this.slides[this.currentSlide]) {
+      this.slides[this.currentSlide].classList.add('active');
+    }
+    if (this.indicators[this.currentSlide]) {
+      this.indicators[this.currentSlide].classList.add('active');
+    }
+  }
+
+  changeSlide(direction) {
+    this.currentSlide += direction;
+    
+    if (this.currentSlide >= this.totalSlides) {
+      this.currentSlide = 0;
+    } else if (this.currentSlide < 0) {
+      this.currentSlide = this.totalSlides - 1;
+    }
+    
+    this.updateSlide();
+  }
+
+  goToSlide(slideIndex) {
+    this.currentSlide = slideIndex;
+    this.updateSlide();
+  }
+
+  startAutoPlay() {
+    this.autoPlayInterval = setInterval(() => {
+      this.changeSlide(1);
+    }, 6000);
+  }
+
+  stopAutoPlay() {
+    if (this.autoPlayInterval) {
+      clearInterval(this.autoPlayInterval);
+    }
+  }
+}
+
 // Scroll Animation Observer
 const observerOptions = {
   threshold: 0.1,
@@ -103,11 +230,28 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-// Initialize mobile navigation when DOM is loaded
+// Global functions for inline onclick handlers
+function changeSlide(direction) {
+  if (window.heroCarousel) {
+    window.heroCarousel.changeSlide(direction);
+  }
+}
+
+function goToSlide(slideIndex) {
+  if (window.heroCarousel) {
+    window.heroCarousel.goToSlide(slideIndex);
+  }
+}
+
+// Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+  // Initialize mobile navigation
   new MobileNavigation();
   
-  // Add animation classes to elements
+  // Initialize carousel
+  window.heroCarousel = new HeroCarousel();
+  
+  // Setup scroll animations
   const menuSection = document.querySelector('#menu h2');
   if (menuSection) menuSection.classList.add('fade-in');
   
@@ -126,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const mapContainer = document.querySelector('.map-container');
   if (mapContainer) observer.observe(mapContainer);
   
-  // Observe all fade-in elements
+  // Observe all animation elements
   document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(el => {
     observer.observe(el);
   });
@@ -136,102 +280,17 @@ document.addEventListener('DOMContentLoaded', () => {
   menuItems.forEach((item, index) => {
     item.style.transitionDelay = `${index * 0.1}s`;
   });
-});
 
-// Add smooth scrolling for better UX
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({
-        behavior: 'smooth'
-      });
-    }
+  // Add smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+    });
   });
-});
-
-// carousel
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
-const indicators = document.querySelectorAll('.indicator');
-const totalSlides = slides.length;
-
-function updateSlide() {
-  // Remove active class from all slides and indicators
-  slides.forEach(slide => slide.classList.remove('active'));
-  indicators.forEach(indicator => indicator.classList.remove('active'));
-  
-  // Add active class to current slide and indicator
-  slides[currentSlide].classList.add('active');
-  indicators[currentSlide].classList.add('active');
-}
-
-function changeSlide(direction) {
-  currentSlide += direction;
-  
-  if (currentSlide >= totalSlides) {
-    currentSlide = 0;
-  } else if (currentSlide < 0) {
-    currentSlide = totalSlides - 1;
-  }
-  
-  updateSlide();
-}
-
-function goToSlide(slideIndex) {
-  currentSlide = slideIndex;
-  updateSlide();
-}
-
-// Auto-advance slides every 6 seconds
-setInterval(() => {
-  changeSlide(1);
-}, 6000);
-
-// Add parallax effect on mouse move
-document.addEventListener('mousemove', (e) => {
-  const mouseX = e.clientX / window.innerWidth;
-  const mouseY = e.clientY / window.innerHeight;
-  
-  const activeSlide = document.querySelector('.slide.active .slide-bg');
-  if (activeSlide) {
-    const moveX = (mouseX - 0.5) * 20;
-    const moveY = (mouseY - 0.5) * 20;
-    activeSlide.style.transform = `scale(1.1) translate(${moveX}px, ${moveY}px)`;
-  }
-});
-
-// Add keyboard navigation
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowLeft') {
-    changeSlide(-1);
-  } else if (e.key === 'ArrowRight') {
-    changeSlide(1);
-  }
-});
-
-// Add touch/swipe support for mobile
-let startX = 0;
-let startY = 0;
-
-document.addEventListener('touchstart', (e) => {
-  startX = e.touches[0].clientX;
-  startY = e.touches[0].clientY;
-});
-
-document.addEventListener('touchend', (e) => {
-  const endX = e.changedTouches[0].clientX;
-  const endY = e.changedTouches[0].clientY;
-  const diffX = startX - endX;
-  const diffY = startY - endY;
-
-  // Only trigger swipe if horizontal movement is greater than vertical
-  if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
-    if (diffX > 0) {
-      changeSlide(1); // Swipe left - next slide
-    } else {
-      changeSlide(-1); // Swipe right - previous slide
-    }
-  }
 });
